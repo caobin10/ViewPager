@@ -25,17 +25,22 @@ public class MainActivity extends Activity
         TextView textview = (TextView) findViewById(R.id.tv);
         final MyDbHelper helper = new MyDbHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
-        Cursor c = db.query("person",null, null, null, null, null, null);
-        if (c != null && c.getCount() >= 1) {
-            while (c.moveToNext()) {
+//        Cursor cursor = db.query("Book",null, null, null, null, null, null);
+
+        Cursor cursor = db.rawQuery("select id,name from Book where name=?",new String[]{"name"});
+
+        if (cursor.moveToNext()) {
+            do {
+//            while (cursor.moveToFirst()) {
 //                list.add(new initdate(base64ToBitmap(c.getString(c.getColumnIndex("字段名1"))), c.getString(c.getColumnIndex("字段名2")),
 //                        c.getString(c.getColumnIndex("字段名3"))));
 
-                c.getString(c.getColumnIndex("name"));
-                textview.setText(c.toString());
-            }
-            c.close();
-            db.close();//关闭数据库
+                String name = cursor.getString(cursor.getColumnIndex("name"));
+                textview.setText(name);
+//            }
+            }while (cursor.moveToNext());
+            cursor.close();
+//            db.close();//关闭数据库
         }
 
     }

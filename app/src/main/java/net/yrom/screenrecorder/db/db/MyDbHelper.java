@@ -30,7 +30,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //创建表
         //_id为主键并且自增长一般命名为_id
-        String sql = "create table person(_id integer primary key autoincrement,name text)";
+        String sql = "create table Book(_id integer primary key autoincrement,name text)";
         db.execSQL(sql);
 
         //可以给表初始化一些数据
