@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "读取数据成功！" + cursor.getCount(), Toast.LENGTH_SHORT).show();
 //            if(cursor.moveToNext()) {
 //                cursor.moveToFirst();
+
                 do {
                     String name = cursor.getString(cursor.getColumnIndex("name"));
                     Log.i("TAG", "表searchHisTab的name=" + name);
