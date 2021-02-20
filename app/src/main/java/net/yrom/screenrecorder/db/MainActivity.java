@@ -1,48 +1,43 @@
 package net.yrom.screenrecorder.db;
 
-import android.app.Activity;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.Toast;
 
 import net.yrom.screenrecorder.R;
-import net.yrom.screenrecorder.db.db.MyDbHelper;
+
+import sqlite.DbHelper;
 
 /**
  * Created by Administrator on 2018/6/4.
  */
 
-public class MainActivity extends Activity
+public class MainActivity extends AppCompatActivity
 {
-    Button mBtn;
+    private DbHelper helper = new DbHelper(this);
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView textview = (TextView) findViewById(R.id.tv);
-        final MyDbHelper helper = new MyDbHelper(this);
-        SQLiteDatabase db = helper.getWritableDatabase();
-//        Cursor cursor = db.query("Book",null, null, null, null, null, null);
-
-        Cursor cursor = db.rawQuery("select id,name from Book where name=?",new String[]{"name"});
-
-        if (cursor.moveToNext()) {
-            do {
-//            while (cursor.moveToFirst()) {
-//                list.add(new initdate(base64ToBitmap(c.getString(c.getColumnIndex("字段名1"))), c.getString(c.getColumnIndex("字段名2")),
-//                        c.getString(c.getColumnIndex("字段名3"))));
-
-                String name = cursor.getString(cursor.getColumnIndex("name"));
-                textview.setText(name);
+        String tempName="";
+        Cursor cursor = helper.getReadableDatabase().rawQuery(
+                "select id as _id,name from records where name like '%" + tempName + "%' order by id desc ", null);
+        if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()){
+            Toast.makeText(this, "读取数据成功！" + cursor.getCount(), Toast.LENGTH_SHORT).show();
+//            if(cursor.moveToNext()) {
+//                cursor.moveToFirst();
+                do {
+                    String name = cursor.getString(cursor.getColumnIndex("name"));
+                    Log.i("TAG", "表searchHisTab的name=" + name);
+                    if (name != null && !name.equals("")) {
+                    }
+                } while (cursor.moveToNext());
+                cursor.close();
 //            }
-            }while (cursor.moveToNext());
-            cursor.close();
-//            db.close();//关闭数据库
+        }else {
+            Toast.makeText(this, "读取数据失败！", Toast.LENGTH_SHORT).show();
         }
-
     }
-
 }
