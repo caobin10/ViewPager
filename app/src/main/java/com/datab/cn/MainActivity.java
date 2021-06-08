@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity
     private Fragment newMsgFragment;
     private Fragment indexFragment;
     private Fragment profileFragment;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
