@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private Fragment4 fragment4;
     private Fragment5 fragment5;
     private Fragment6 fragment6;
-
     private RadioGroup navRg;
 
     @Override
