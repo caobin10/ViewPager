@@ -5,32 +5,32 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar" />
 
-    <style name="AppTheme2" parent="AppBaseTheme"/>
+    <style name="AppTheme2" parent="AppBaseTheme" />
 
-    <style name="Bottom">
-    </style>
-    <style name="Bottom.MainTabBar">
+    <style name="XJFuPin"> </style>
+    <style name="XJFuPin.MainTabBar">
         <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/bg_bottom_tabbar</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">3.0dip</item>
     </style>
 
-    <style name="Bottom.MainTabBar.NestedButton">
-        <item name="android:gravity">center</item>
-        <item name="android:background">@null</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+    <style name="Nav">
     </style>
-
-    <style name="Bottom.MainTabBar.Button">
+    <style name="Nav.NestedButton">
+        <item name="android:textSize">@dimen/common_mind_text_size</item>
+        <item name="android:textColor">@drawable/selector_tabbar_button</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@null</item>
-        <item name="android:layout_width">0.0dip</item>
+        <item name="android:background">@drawable/selector_bg_tab_nav</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1.0</item>
+        <item name="android:button">@null</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingBottom">8dp</item>
     </style>
-
 </resources>

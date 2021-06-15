@@ -3,38 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <FrameLayout
-        android:id="@+id/container"
+
+    <com.datab.cn.view.SyncHorizontalScrollView
+        android:id="@+id/hsv_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/rg_nav"
+            style="@style/XJFuPin.MainTabBar">
+
+            <RadioButton
+                android:id="@+id/rb_x1"
+                style="@style/Nav.NestedButton"
+                android:checked="true"
+                android:text="信息1" />
+
+            <RadioButton
+                android:id="@+id/rb_x2"
+                style="@style/Nav.NestedButton"
+                android:text="信息2" />
+
+            <RadioButton
+                android:id="@+id/rb_x3"
+                style="@style/Nav.NestedButton"
+                android:text="信息3" />
+
+            <RadioButton
+                android:id="@+id/rb_x4"
+                style="@style/Nav.NestedButton"
+                android:text="信息4" />
+
+            <RadioButton
+                android:id="@+id/rb_x5"
+                style="@style/Nav.NestedButton"
+                android:text="信息5" />
+            <RadioButton
+                android:id="@+id/rb_x6"
+                style="@style/Nav.NestedButton"
+                android:text="信息6" />
+        </RadioGroup>
+    </com.datab.cn.view.SyncHorizontalScrollView>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.0" >
-    </FrameLayout>
-    <com.datab.cn.view.NestedRadioGroup
-        android:id="@+id/rg_main_tabbar"
-        style="@style/Bottom.MainTabBar" >
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0" >
-            <RadioButton
-                android:id="@+id/rb_new_msg"
-                style="@style/Bottom.MainTabBar.NestedButton"
-                android:button="@null"
-                android:drawableTop="@drawable/selector_main_tabbar_newmsg"
-                android:checked="true"
-                android:text="消息" />
-        </FrameLayout>
-        <RadioButton
-            android:id="@+id/rb_index"
-            style="@style/Bottom.MainTabBar.Button"
-            android:button="@null"
-            android:drawableTop="@drawable/selector_main_tabbar_index"
-            android:text="首页" />
-        <RadioButton
-            android:id="@+id/rb_profile"
-            style="@style/Bottom.MainTabBar.Button"
-            android:button="@null"
-            android:drawableTop="@drawable/selector_main_tabbar_profile"
-            android:text="个人" />
-    </com.datab.cn.view.NestedRadioGroup>
+        android:layout_weight="1.0" />
 </LinearLayout>
