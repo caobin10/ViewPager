@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment5 fragment5;
     private Fragment6 fragment6;
     private RadioGroup navRg;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
